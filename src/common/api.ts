@@ -80,7 +80,7 @@ export const usesResultsApi = asApi([
 export const userApi = asApi([
   {
     method: 'get',
-    path: '/uses',
+    path: '/users',
     alias: 'getUsers',
     response: usesResults,
   },

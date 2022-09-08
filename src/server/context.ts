@@ -1,12 +1,12 @@
 import { zodiosContext } from '@zodios/express'
 import z from 'zod'
-import { use } from '../common/api'
+import { usesResults } from '../common/api'
 
-const user = z.object({
-  id: z.number(),
-  name: z.string(),
-  email: z.string().email(),
-})
+// const user = z.object({
+//   id: z.number(),
+//   name: z.string(),
+//   email: z.string().email(),
+// })
 
-export const ctx = zodiosContext(z.object({ user }))
-export const usesCtx = zodiosContext(z.object({ use }))
+// export const ctx = zodiosContext(z.object({ user }))
+export const ctx = zodiosContext(z.object({ usesResults }))
