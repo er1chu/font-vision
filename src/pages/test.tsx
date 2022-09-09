@@ -1,21 +1,21 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import { QueryClientProvider, QueryClient, useQuery } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
-import axios from "axios";
-import { usesResults } from "../common/api";
-import { z } from "zod";
+import type { NextPage } from 'next'
+import Head from 'next/head'
+import { QueryClientProvider, QueryClient, useQuery } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
+import axios from 'axios'
+import { usesResults } from '../common/api'
+import { z } from 'zod'
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient()
 
 const Uses = () => {
-  const { isLoading, isError, data } = useQuery("uses", async () => {
-    const { data } = await axios("/api/uses");
-    return data as z.infer<typeof usesResults>;
-  });
-  console.log(data);
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error</div>;
+  const { isLoading, isError, data } = useQuery('uses', async () => {
+    const { data } = await axios('/api/uses')
+    return data as z.infer<typeof usesResults>
+  })
+  console.log(data)
+  if (isLoading) return <div>Loading...</div>
+  if (isError) return <div>Error</div>
   return (
     <div className="max-w-screen grid grid-cols-5 gap-1 bg-black">
       {data?.uses.map((use, index) => (
@@ -31,8 +31,8 @@ const Uses = () => {
         </>
       ))}
     </div>
-  );
-};
+  )
+}
 
 const Test: NextPage = () => {
   return (
@@ -47,7 +47,7 @@ const Test: NextPage = () => {
       </div>
       <ReactQueryDevtools initialIsOpen={true} />
     </QueryClientProvider>
-  );
-};
+  )
+}
 
-export default Test;
+export default Test

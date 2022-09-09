@@ -4,11 +4,12 @@ import { Zodios } from '@zodios/core'
 import { ZodiosHooks } from '@zodios/react'
 import { usesResultsApi } from '../common/api'
 import { QueryClientProvider, QueryClient } from 'react-query'
-import { usesResults } from '../common/api/'
-import { z } from 'zod'
 
 const queryClient = new QueryClient()
-const usesClientApi = new Zodios('http://localhost:3000/api/uses', usesResultsApi)
+const usesClientApi = new Zodios(
+  'http://localhost:3000/api/uses',
+  usesResultsApi
+)
 const usesClientHooks = new ZodiosHooks('/api', usesClientApi)
 
 const Users = () => {
@@ -29,8 +30,8 @@ const Home: NextPage = () => {
       <div>
         <Head>
           <title>Zodios Example App</title>
-          <meta name='description' content='Zodios app' />
-          <link rel='icon' href='/favicon.ico' />
+          <meta name="description" content="Zodios app" />
+          <link rel="icon" href="/favicon.ico" />
         </Head>
         <h1>Users</h1>
         <Users />
