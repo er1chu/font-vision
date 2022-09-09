@@ -24,6 +24,7 @@ specifiers:
   tailwindcss: ^3.1.8
   typescript: 4.7.4
   zod: ^3.18.0
+  zod-error: ^1.0.3
 
 dependencies:
   '@zodios/core': 9.0.1_axios@0.27.2+zod@3.19.0
@@ -36,6 +37,7 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   react-query: 3.39.2_biqbaboplfbrettd7655fr4n2y
   zod: 3.19.0
+  zod-error: 1.0.3
 
 devDependencies:
   '@types/node': 18.0.0
@@ -2778,6 +2780,12 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  /zod-error/1.0.3:
+    resolution: {integrity: sha512-VPqQz78B4Y5tuvPGpMl+4ehsMvqEP8sEmuTYGssdjBCyRaK8biyoXpZCzL0mCgU1O0qkP3GUKEo8z4lFC/Kmhg==}
+    dependencies:
+      zod: 3.19.0
+    dev: false
 
   /zod/3.19.0:
     resolution: {integrity: sha512-Yw0qvUsCNGBe5YacikdMt5gVYeUuaEFVDIHKMfElrGSaBhwR3CQK6vOzgfAJOjTdGIhEeoaj8GtT+NDZrepZbw==}
