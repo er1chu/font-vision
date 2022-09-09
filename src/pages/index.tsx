@@ -2,44 +2,22 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { Zodios } from '@zodios/core'
 import { ZodiosHooks } from '@zodios/react'
-import { userApi } from '../common/api'
+import { usesResultsApi } from '../common/api'
 import { QueryClientProvider, QueryClient } from 'react-query'
-import { useState } from 'react'
+import { usesResults } from '../common/api/'
+import { z } from 'zod'
 
 const queryClient = new QueryClient()
-const userClientApi = new Zodios('/api', userApi)
-const userClientHooks = new ZodiosHooks('users', userClientApi)
+const usesClientApi = new Zodios('http://localhost:3000/api/uses', usesResultsApi)
+const usesClientHooks = new ZodiosHooks('/api', usesClientApi)
 
 const Users = () => {
-  const [count, setCount] = useState(1)
-  const { data: users, error, isLoading, invalidate } = userClientHooks.useGetUsers()
-  const { mutate } = userClientHooks.useMutation('post', '/users', undefined, {
-    onSuccess: () => invalidate(),
-  })
-  if (isLoading) {
-    return <div>Loading...</div>
-  }
-  if (error) {
-    return <div>{JSON.stringify(error)}</div>
-  }
-
+  const { data: uses } = usesClientHooks.useGetUses()
+  console.log(uses)
   return (
     <div>
-      <button
-        onClick={() => {
-          mutate({
-            name: `user${count}`,
-            age: count,
-            email: `user${count}@test.com`,
-          })
-          setCount((prev) => prev + 1)
-        }}>
-        Add User
-      </button>
-      {users?.map((user) => (
-        <div key={user.id}>
-          {user.name} - {user.email} {user.age} years old, {user.email}
-        </div>
+      {uses?.uses.map((use) => (
+        <div key={use.id}>{use.id}</div>
       ))}
     </div>
   )
