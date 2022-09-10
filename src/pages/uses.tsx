@@ -14,7 +14,7 @@ const Header: React.FC = () => {
   return (
     <header className='relative grid grid-cols-5 gap-px bg-black p-[2px] text-xs font-medium'>
       <img src='/fv.svg' alt='font vision' className='col-span-1 bg-gray-200 p-2' />
-      <div className='-full bg-white p-2'>yell</div>
+      <div className='h-full bg-white p-2'>yell</div>
     </header>
   )
 }
@@ -44,7 +44,7 @@ const UsesResults: NextPage = () => {
     <QueryClientProvider client={queryClient}>
       <div className='w-full bg-gray-200'>
         <Head>
-          <title>Zodios Example App</title>
+          <title>Font Vision</title>
           <meta name='description' content='Zodios app' />
           <link rel='icon' href='/favicon.ico' />
         </Head>
