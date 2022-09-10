@@ -1,0 +1,189 @@
+{
+  "count": 65909,
+  "page_size": "20",
+  "type_entities": [
+    {
+      "description": "<p><cite>Unbounded</cite> is the product of a joint collaboration between <a href=\"https://koto.studio/\">Studio Koto</a>, <a href=\"https://www.nan.xyz/\">NaN</a>, <a href=\"https://parity.io/\">Parity Technologies</a> and <a href=\"https://www.web3.foundation/\">Web3 Foundation</a> for <a href=\"https://polkadot.network\">Polkadot Network</a> [<a href=\"https://github.com/w3f/unbounded\">GitHub</a>]. Released under the SIL Open Font License 1.1<span>. Comes in six (upright) weights as well as a single variable font, with support for Latin (incl. Pan-African) and Cyrillic.</span></p>",
+      "id": 207246,
+      "kind": "Family",
+      "name": "Unbounded",
+      "slug": "unbounded",
+      "use_count": 0,
+      "permalink": "https://fontsinuse.com/typefaces/207246/unbounded",
+      "sample_src": "https://assets.fontsinuse.com/static/samples/11/10381/440/0/6315a4de/unbounded.png"
+    },
+    { "id": 207247, "kind": "Family", "name": "Goldich", "slug": "goldich", "use_count": 0, "permalink": "https://fontsinuse.com/typefaces/207247/goldich", "sample_src": "" },
+    {
+      "description": "<p>Comes in 64 numbered styles: 8<span class=\"nbsp\">&nbsp;</span>widths (in three groups; Narrow, Standard, Wide), each with 8 (upright) weights.</p>",
+      "id": 207264,
+      "kind": "Family",
+      "name": "Field Gothic",
+      "slug": "field-gothic",
+      "use_count": 0,
+      "permalink": "https://fontsinuse.com/typefaces/207264/field-gothic",
+      "sample_src": "https://assets.fontsinuse.com/static/samples/11/10395/440/0/6318c421/field-gothic.png"
+    },
+    {
+      "description": "<p>Designed as a custom typeface for <span>The Khudozhestvenny Cinema in Moscow, December 2020. Released as a retail typeface in September 2022, supporting Cyrillic and Latin.</span> One weight, no lowercase.</p>",
+      "id": 207266,
+      "kind": "Family",
+      "name": "CoFo Cinema1909",
+      "slug": "cofo-cinema1909",
+      "use_count": 0,
+      "permalink": "https://fontsinuse.com/typefaces/207266/cofo-cinema1909",
+      "sample_src": "https://assets.fontsinuse.com/static/samples/11/10396/440/0/63198ea4/cofo-cinema1909.png"
+    },
+    {
+      "id": 202757,
+      "kind": "Family",
+      "name": "Mule",
+      "slug": "mule",
+      "use_count": 0,
+      "permalink": "https://fontsinuse.com/typefaces/202757/mule",
+      "sample_src": "https://assets.fontsinuse.com/static/samples/11/10300/440/0/62f1152f/mule.png"
+    },
+    {
+      "id": 205970,
+      "kind": "Family",
+      "name": "JAF Cupidus",
+      "slug": "jaf-cupidus",
+      "use_count": 0,
+      "permalink": "https://fontsinuse.com/typefaces/205970/jaf-cupidus",
+      "sample_src": "https://assets.fontsinuse.com/static/samples/11/10341/440/0/6304c953/jaf-cupidus.png"
+    },
+    {
+      "description": "<p>A single style issued as an incomplete version through Commercial Type’s Vault in August 2022. “An homage to <cite>@typeentity:7340@</cite> by Miguel Reyes, started as a custom project that was cancelled amid a corporate reshuffle, and later finished for Richard Turley’s guest editorship of It’s Nice That in August 2022.” [<a href=\"https://An homage to Brush Script by Miguel Reyes, started as a custom project that was cancelled amid a corporate reshuffle, and later finished for Richard Turley’s guest editorship of Its Nice That in August 2022. Miguel’s update draws on his experience with signpainting, toning down the bouncy baseline and facilitating use in all caps. Brush Script was designed by Robert E. Smith in 1942; a different Robert Smith provided the name.\">Commercial Type</a>]</p>",
+      "id": 206738,
+      "kind": "Family",
+      "name": "Lovesong",
+      "slug": "lovesong",
+      "use_count": 0,
+      "permalink": "https://fontsinuse.com/typefaces/206738/lovesong",
+      "sample_src": ""
+    },
+    {
+      "description": "<p>A digitization and extension of Otto Naegele’s <cite>@typeentity:39863@</cite>, or <cite>Reklameschrift Bombe</cite> (Ludwig &amp; Mayer, 1908). Comes in two versions, A and B. In the latter, some blackletter-style letterforms were modernized. Made available exclusively to supporters of the community websites Typography.guru and Typografie.info.</p>",
+      "id": 5525,
+      "kind": "Family",
+      "name": "FDI Reklameschrift",
+      "slug": "fdi-reklameschrift",
+      "permalink": "https://fontsinuse.com/typefaces/5525/fdi-reklameschrift",
+      "sample_src": ""
+    },
+    {
+      "description": "<p>Design started in 2017, expanded with lowercase in 2021–22, and released via the Commercial Type Vault in August 2022.</p>",
+      "id": 206741,
+      "kind": "Family",
+      "name": "Ergon",
+      "slug": "ergon",
+      "use_count": 0,
+      "permalink": "https://fontsinuse.com/typefaces/206741/ergon",
+      "sample_src": "https://assets.fontsinuse.com/static/samples/11/10361/440/0/630e8488/ergon.png"
+    },
+    {
+      "id": 206750,
+      "kind": "Family",
+      "name": "BN Burough",
+      "slug": "bn-burough",
+      "use_count": 0,
+      "permalink": "https://fontsinuse.com/typefaces/206750/bn-burough",
+      "sample_src": "https://assets.fontsinuse.com/static/samples/11/10368/440/0/63107dcf/bn-burough.png"
+    },
+    {
+      "description": "<p>Designed in 2016 for the <em>Helsingin Sanomat </em>newspaper. Made available viathe Commercial Type Vault in 2022.</p>",
+      "id": 205983,
+      "kind": "Family",
+      "name": "Sanomat Slab",
+      "slug": "sanomat-slab",
+      "use_count": 0,
+      "permalink": "https://fontsinuse.com/typefaces/205983/sanomat-slab",
+      "sample_src": "https://assets.fontsinuse.com/static/samples/11/10352/440/0/63092eec/sanomat-slab.png"
+    },
+    {
+      "description": "<p>Inspired by Robert Stöcklin’s lettering for his <a href=\"https://www.emuseum.ch/objects/14158/schweizer-mustermesse-basel\">poster design for the Mustermesse Basel 1924</a>. Started in 2017 and expanded in 2019. Released by Nguyen Gobber in August 2022.</p>",
+      "id": 129445,
+      "kind": "Family",
+      "name": "Lucifer",
+      "slug": "lucifer",
+      "use_count": 2,
+      "permalink": "https://fontsinuse.com/typefaces/129445/lucifer",
+      "sample_src": "https://assets.fontsinuse.com/static/samples/7/6715/440/0/62ffcd99/lucifer.png"
+    },
+    {
+      "id": 205792,
+      "kind": "Family",
+      "name": "Okoye",
+      "slug": "okoye",
+      "use_count": 0,
+      "permalink": "https://fontsinuse.com/typefaces/205792/okoye",
+      "sample_src": "https://assets.fontsinuse.com/static/samples/11/10337/440/0/63028443/okoye.png"
+    },
+    {
+      "description": "<p>Comes in six weights plus italics, all additionally available in a Spike variant with diagonal terminals for some glyphs. See also <cite>@typeentity:202210@</cite> with horizontal contrast. Also offered in variable font format.</p>",
+      "id": 202209,
+      "kind": "Family",
+      "name": "Takeoff A",
+      "slug": "takeoff-a",
+      "use_count": 0,
+      "permalink": "https://fontsinuse.com/typefaces/202209/takeoff-a",
+      "sample_src": "https://assets.fontsinuse.com/static/samples/11/10262/440/0/62e7b4e2/takeoff-a.png"
+    },
+    {
+      "description": "<p>Comes in four weights plus italics, all additionally available in a Spike variant with diagonal terminals for some glyphs. See also <cite>@typeentity:202209@</cite> with conventional contrast. Also offered in variable font format.</p>",
+      "id": 202210,
+      "kind": "Family",
+      "name": "Takeoff B",
+      "slug": "takeoff-b",
+      "use_count": 0,
+      "permalink": "https://fontsinuse.com/typefaces/202210/takeoff-b",
+      "sample_src": "https://assets.fontsinuse.com/static/samples/11/10261/440/0/62e7b4dc/takeoff-b.png"
+    },
+    {
+      "description": "<p>A revival of @typedesigner:1284@’s <cite>@typeentity:41788@</cite> (MS&amp;J, 1878), released in August 2022 to members of the Font of the Month Club. The interpretation mostly follows the proportions of Glyptic’s two-line pica cut (24pt). Comes with ornaments and alternates for ‘O’, ‘K’ and word space.</p>",
+      "id": 202213,
+      "kind": "Family",
+      "name": "Glyptic DJR",
+      "slug": "glyptic-djr",
+      "use_count": 0,
+      "permalink": "https://fontsinuse.com/typefaces/202213/glyptic-djr",
+      "sample_src": "https://assets.fontsinuse.com/static/samples/11/10263/440/0/62e8d3cd/glyptic-djr.png"
+    },
+    {
+      "id": 202216,
+      "kind": "Family",
+      "name": "Darker",
+      "slug": "darker",
+      "use_count": 0,
+      "permalink": "https://fontsinuse.com/typefaces/202216/darker",
+      "sample_src": "https://assets.fontsinuse.com/static/samples/11/10264/440/0/62e918b0/darker.png"
+    },
+    {
+      "id": 203245,
+      "kind": "Family",
+      "name": "Rumiko Sans",
+      "slug": "rumiko-sans",
+      "use_count": 0,
+      "permalink": "https://fontsinuse.com/typefaces/203245/rumiko-sans",
+      "sample_src": "https://assets.fontsinuse.com/static/samples/11/10326/440/0/62fb3926/rumiko-sans.png"
+    },
+    {
+      "id": 203246,
+      "kind": "Family",
+      "name": "Rumiko Clear",
+      "slug": "rumiko-clear",
+      "use_count": 0,
+      "permalink": "https://fontsinuse.com/typefaces/203246/rumiko-clear",
+      "sample_src": "https://assets.fontsinuse.com/static/samples/11/10327/440/0/62fb392c/rumiko-clear.png"
+    },
+    {
+      "description": "<p>Comes in 6 weights plus a dingbat style, <cite>Ohno Casual Textile</cite>. Also available in variable font format with axes for weight and contrast.</p>",
+      "id": 109886,
+      "kind": "Family",
+      "name": "Ohno Casual",
+      "slug": "ohno-casual",
+      "use_count": 0,
+      "permalink": "https://fontsinuse.com/typefaces/109886/ohno-casual",
+      "sample_src": "https://assets.fontsinuse.com/static/samples/11/10242/440/0/62d7054e/ohno-casual.png"
+    }
+  ]
+}
