@@ -15,7 +15,11 @@ const Entities = () => {
   return (
     <>
       {entities?.type_entities.map((entity, index) => (
-        <>{entity.sample_src && <DisplayUnit name={entity.name} sampleSrc={entity.sample_src} useCount={entity.use_count} key={index} />}</>
+        <>
+          {entity.sample_src && (
+            <DisplayUnit name={entity.name} sampleSrc={entity.sample_src} useCount={entity.use_count} key={index} />
+          )}
+        </>
       ))}
     </>
   )
