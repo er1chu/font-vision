@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@studio-freight/lenis": "^0.2.1",
     "@zodios/core": "^9.0.1",
     "@zodios/express": "^0.3.2",
     "@zodios/react": "^9.0.1",
