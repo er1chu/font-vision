@@ -1,12 +1,14 @@
 import React from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import Masthead from './Masthead'
 const queryClient = new QueryClient()
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <QueryClientProvider client={queryClient}>
       <div className='w-full bg-gray-200'>
         <Header />
-        <div className='max-w-screen grid grid-cols-5 gap-[2px] bg-black'>{children}</div>
+        <div className='sticky top-0 z-50 min-h-[50px] w-full border-b-[2px] border-black bg-orange-100'></div>
+        <div className='max-w-screen grid grid-cols-2 gap-[2px] bg-black md:grid-cols-5'>{children}</div>
       </div>
     </QueryClientProvider>
   )
@@ -14,9 +16,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
 const Header: React.FC = () => {
   return (
-    <header className='relative grid grid-cols-5 gap-px bg-black p-[2px] text-xs font-medium'>
-      <img src='/fv.svg' alt='font vision' className='col-span-1 bg-gray-200 p-2' />
-      <div className='-full bg-white p-2'>Powered by Fonts In Use</div>
+    <header className='relative grid grid-cols-5 gap-[2px] bg-black pb-[2px] text-xs font-medium'>
+      <Masthead />
+      <div className='col-span-2 w-full bg-white p-2'>Powered by Fonts In Use</div>
     </header>
   )
 }
