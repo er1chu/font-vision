@@ -1,11 +1,9 @@
 import z from 'zod'
 import { asApi } from '@zodios/core'
 
-const user = z.object({
-  id: z.number(),
-  name: z.string(),
-  age: z.number().positive(),
-  email: z.string().email(),
+const GenericFontDataSet = z.object({
+  count: z.number(),
+  page_size: z.number().or(z.string().transform((val) => parseInt(val))),
 })
 
 const GenericFontObject = z.object({
@@ -69,9 +67,7 @@ export const use = z.object({
   thumb: webPUrl,
 })
 
-export const usesResults = z.object({
-  count: z.number(),
-  page_size: z.number(),
+export const usesResults = GenericFontDataSet.extend({
   uses: z.array(use),
 })
 
@@ -81,6 +77,76 @@ export const usesResultsApi = asApi([
     path: '/uses',
     alias: 'getUses',
     response: usesResults,
+  },
+])
+
+const GenericSubEntity = z.object({
+  id: z.number(),
+  principal: z.boolean(),
+})
+
+const designEntity = GenericSubEntity.extend({
+  designed: z.optional(z.date().or(z.string())),
+  designer: z.object({
+    id: z.number(),
+    name: z.string(),
+    permalink: z.string().url(),
+  }),
+})
+
+const foundryEntity = GenericSubEntity.extend({
+  foundry: z.object({
+    href: z.string().url(),
+    id: z.number(),
+    links: z.array(
+      z.object({
+        discr: z.string(),
+        href: z.string().url(),
+        id: z.number(),
+        type: z.number(),
+        typed_label: z.string(),
+      })
+    ),
+    name: z.string(),
+    permalink: z.string().url(),
+  }),
+})
+
+export const detailedFamily = GenericFontObject.extend({
+  description: z.optional(z.string()),
+  designs: z.array(z.any()),
+  foundry_type_entities: z.array(z.any()),
+  info_links: z.array(z.any()),
+  kind: z.string(),
+  released: z.date().or(z.string()),
+  released_circa: z.optional(z.boolean()),
+  source_links: z.array(z.any()),
+  styles: z.array(z.any()),
+  vendor_type_entities: z.array(z.any()),
+  sample_src: z.nullable(z.string().url()),
+})
+
+export const detailedFamilyResults = GenericFontDataSet.extend({
+  type_entities: z.array(detailedFamily),
+})
+
+export const entity = GenericFontObject.extend({
+  description: z.optional(z.string()),
+  kind: z.string(),
+  use_count: z.optional(z.number().nonnegative()),
+  sample_src: z.nullable(z.string()),
+})
+
+export const entitiesResults = GenericFontDataSet.extend({
+  type_entities: z.array(entity),
+})
+
+export const entitiesResultsApi = asApi([
+  {
+    method: 'get',
+    path: '/entities',
+    alias: 'getEntities',
+    response: entitiesResults,
   },
 ])
 
@@ -95,7 +161,7 @@ export const userApi = asApi([
     method: 'get',
     path: '/users/:id',
     alias: 'getUser',
-    response: user,
+    response: use,
     errors: [
       {
         status: 'default',
@@ -116,9 +182,9 @@ export const userApi = asApi([
       {
         name: 'user',
         type: 'Body',
-        schema: user.omit({ id: true }),
+        schema: use.omit({ id: true }),
       },
     ],
-    response: user,
+    response: use,
   },
 ])
