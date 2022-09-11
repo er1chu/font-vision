@@ -1,6 +1,6 @@
 interface DisplayProps {
   useCount?: number
-  sampleSrc: string | null
+  sampleSrc?: string | null
   name: string
 }
 
