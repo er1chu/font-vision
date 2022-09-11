@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react'
 
-function Masthead(props: HTMLAttributes<SVGElement>): ReactHTMLElement {
+function Masthead(props: HTMLAttributes<SVGElement>): JSX.Element {
   return (
     <svg
       className='col-span-3 bg-gray-200 p-[4px]'
