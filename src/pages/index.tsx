@@ -6,7 +6,7 @@ import { Zodios } from '@zodios/core'
 import { ZodiosHooks } from '@zodios/react'
 import { usesResultsApi } from '../common/api'
 import Layout from '../components/Layout'
-import { useLayoutEffect } from 'react'
+import { useIsomorphicEffect } from 'hooks/useIsomorphicLayoutEffect'
 import { scroll, animate } from 'motion'
 import { useRef } from 'react'
 interface FontUseProps {
@@ -28,7 +28,8 @@ const UsesResults: NextPage = () => {
 
 const Uses: React.FC = () => {
   const { data: uses, isLoading, isError } = usesClientHooks.useGetUses()
-  if (isLoading) return <div className='min-w-screen min-h-screen bg-green-100'>Loading Fonts...</div>
+  if (isLoading)
+    return <div className='min-w-screen col-span-2 min-h-screen bg-green-100 md:col-span-5'>Loading Fonts...</div>
   if (isError) return <div>Error</div>
   return (
     <>
@@ -41,7 +42,8 @@ const Uses: React.FC = () => {
 
 const FontUseUnit: React.FC<FontUseProps> = ({ useIndex, fontFamilies, thumb }) => {
   const animationRef = useRef<Element>(null) as React.MutableRefObject<Element>
-  useLayoutEffect(() => {
+  const layoutEffect = useIsomorphicEffect()
+  layoutEffect(() => {
     scroll(
       animate(
         animationRef.current,
