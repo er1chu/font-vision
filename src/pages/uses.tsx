@@ -14,7 +14,7 @@ const Header: React.FC = () => {
   return (
     <header className='relative grid grid-cols-5 gap-px bg-black p-[2px] text-xs font-medium'>
       <img src='/fv.svg' alt='font vision' className='col-span-1 bg-gray-200 p-2' />
-      <div className='h-full bg-white p-2'>yell</div>
+      <div className='h-full bg-white p-2'>TO-DO:Subheader Component</div>
     </header>
   )
 }
@@ -61,5 +61,7 @@ const UsesResults: NextPage = () => {
     </QueryClientProvider>
   )
 }
+
+const DisplayUnit
 
 export default UsesResults
