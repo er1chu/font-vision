@@ -23,6 +23,8 @@ const FontFamily = GenericFontObject.extend({
   sample_src: z.string(),
 })
 
+export type FontFamily = z.infer<typeof FontFamily>
+
 const Contributor = z.object({
   id: z.number(),
   slug: z.string(),
@@ -70,6 +72,8 @@ export const use = z.object({
 export const usesResults = GenericFontDataSet.extend({
   uses: z.array(use),
 })
+
+export type Use = z.infer<typeof use>
 
 export const usesResultsApi = asApi([
   {
