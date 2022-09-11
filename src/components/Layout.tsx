@@ -1,8 +1,27 @@
 import React from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import Masthead from './Masthead'
+import { useEffect } from 'react'
+import Lenis from '@studio-freight/lenis'
+import { animate, scroll } from 'motion'
+
 const queryClient = new QueryClient()
+
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t: number): number => (t === 1 ? 1 : 1 - Math.pow(2, -8 * t)), // https://easings.net
+      smooth: true,
+      direction: 'vertical',
+    })
+    function raf(time: number) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+  })
   return (
     <QueryClientProvider client={queryClient}>
       <div className='w-full bg-gray-200'>
