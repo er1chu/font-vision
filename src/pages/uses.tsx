@@ -19,12 +19,6 @@ const Header: React.FC = () => {
   )
 }
 
-;<Head>
-  <title>Font Vision</title>
-  <meta name='description' content='Zodios app' />
-  <link rel='icon' href='/favicon.ico' />
-</Head>
-
 const Uses = () => {
   const { data: uses, isLoading, isError } = usesClientHooks.useGetUses()
   if (isLoading) return <div>Loading...</div>
