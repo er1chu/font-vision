@@ -3,7 +3,6 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import Masthead from './Masthead'
 import { useEffect } from 'react'
 import Lenis from '@studio-freight/lenis'
-import { animate, scroll } from 'motion'
 
 const queryClient = new QueryClient()
 
