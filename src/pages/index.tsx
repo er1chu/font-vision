@@ -1,13 +1,13 @@
 import type { NextPage } from 'next'
 import type { FontFamily } from '../common/api'
-import type { RefObject, MutableRefObject } from 'react'
+import type React from 'react'
 
 import { Zodios } from '@zodios/core'
 import { ZodiosHooks } from '@zodios/react'
 import { usesResultsApi } from '../common/api'
 import Layout from '../components/Layout'
-import React, { useEffect } from 'react'
-import { scroll, animate, stagger } from 'motion'
+import { useLayoutEffect } from 'react'
+import { scroll, animate } from 'motion'
 import { useRef } from 'react'
 interface FontUseProps {
   useIndex: number
@@ -26,7 +26,7 @@ const UsesResults: NextPage = () => {
   )
 }
 
-const Uses = () => {
+const Uses: React.FC = () => {
   const { data: uses, isLoading, isError } = usesClientHooks.useGetUses()
   if (isLoading) return <div className='min-w-screen min-h-screen bg-green-100'>Loading Fonts...</div>
   if (isError) return <div>Error</div>
@@ -40,8 +40,8 @@ const Uses = () => {
 }
 
 const FontUseUnit: React.FC<FontUseProps> = ({ useIndex, fontFamilies, thumb }) => {
-  const animationRef = useRef<Element>(null) as MutableRefObject<Element>
-  useEffect(() => {
+  const animationRef = useRef<Element>(null) as React.MutableRefObject<Element>
+  useLayoutEffect(() => {
     scroll(
       animate(
         animationRef.current,
@@ -60,7 +60,7 @@ const FontUseUnit: React.FC<FontUseProps> = ({ useIndex, fontFamilies, thumb }) 
   })
   return (
     <div
-      ref={animationRef as RefObject<HTMLDivElement>}
+      ref={animationRef as React.RefObject<HTMLDivElement>}
       className='family-unit group flex aspect-[0.8] flex-col overflow-hidden rounded-lg odd:bg-[#b9ff00] even:bg-[#FFE0F8] hover:cursor-pointer'>
       <div>
         {fontFamilies.slice(0, 3).map(({ name, sample_src, use_count }, fontIndex) => (
@@ -77,7 +77,7 @@ const FontUseUnit: React.FC<FontUseProps> = ({ useIndex, fontFamilies, thumb }) 
         className='group-hover:opacity-2 object-cover opacity-100 transition-all'
         src={thumb}
         loading='lazy'
-        alt={`Design featuring ${fontFamilies[0]?.name}`}
+        alt={`Design featuring ${fontFamilies[0]?.name || 'an unidentified font'}`}
       />
     </div>
   )
