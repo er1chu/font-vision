@@ -1,13 +1,13 @@
-import React from 'react'
+import type React from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import Masthead from './Masthead'
-import { useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 import Lenis from '@studio-freight/lenis'
 
 const queryClient = new QueryClient()
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  useEffect(() => {
+  useLayoutEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t: number): number => (t === 1 ? 1 : 1 - Math.pow(2, -8 * t)), // https://easings.net
@@ -36,7 +36,7 @@ const Header: React.FC = () => {
   return (
     <header className='relative grid grid-cols-5 gap-[2px] bg-black pb-[2px] text-xs font-medium'>
       <Masthead />
-      <div className='col-span-2 w-full bg-white p-2'>Powered by Fonts In Use</div>
+      <div className='col-span-2 w-full bg-white p-2'>TO-DO: Subheader Component</div>
     </header>
   )
 }
