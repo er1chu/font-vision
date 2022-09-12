@@ -1,4 +1,4 @@
-import { app } from '../../server/routers/app'
+import { app } from '@/server/routers/app'
 
 export default app
 

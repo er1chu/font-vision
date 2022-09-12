@@ -1,4 +1,4 @@
-import { usesResultsApi } from '../../common/api'
+import { usesResultsApi } from '@/common/api'
 import { zodiosRouter } from '@zodios/express'
 
 export const usesRouter = zodiosRouter(usesResultsApi)

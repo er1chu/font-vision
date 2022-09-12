@@ -1,6 +1,6 @@
-import { entitiesResults, usesResults } from '../common/api'
-import * as entitiesData from '../lib/sampleData/entities.json'
-import * as usesData from '../lib/sampleData/uses.json'
+import { entitiesResults, usesResults } from '@/common/api'
+import * as entitiesData from '@/lib/sampleData/entities.json'
+import * as usesData from '@/lib/sampleData/uses.json'
 
 enum StaticData {
   'entities' = 0,
