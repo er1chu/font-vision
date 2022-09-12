@@ -1,7 +1,7 @@
 import type React from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
-import Masthead from '@/components/Masthead'
-import { useIsomorphicEffect } from '@/hooks/useIsomorphicLayoutEffect'
+import Masthead from '@/components/header-masthead'
+import { useIsomorphicEffect } from '@/common/hooks/use-isomorphic-layout-effect'
 import Lenis from '@studio-freight/lenis'
 
 const queryClient = new QueryClient()
