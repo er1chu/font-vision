@@ -8,7 +8,7 @@ import { scroll, animate } from 'motion'
 import { useRef } from 'react'
 
 import { usesResultsApi } from '@/common/api-types'
-import Layout from '@/components/app-layout'
+import Layout from '@/components/layout'
 import { useIsomorphicEffect } from '@/common/hooks/use-isomorphic-layout-effect'
 interface FontUseProps {
   useIndex: number

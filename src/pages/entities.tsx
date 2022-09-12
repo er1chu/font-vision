@@ -3,7 +3,7 @@ import { Zodios } from '@zodios/core'
 import { ZodiosHooks } from '@zodios/react'
 
 import { entitiesResultsApi } from '@/common/api-types'
-import Layout from '@/components/app-layout'
+import Layout from '@/components/layout'
 import DisplayUnit from '@/components/display-unit'
 
 const entitiesClientApi = new Zodios('/api', entitiesResultsApi)
