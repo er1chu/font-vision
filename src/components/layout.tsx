@@ -9,23 +9,13 @@ const queryClient = new QueryClient()
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const layoutEffect = useIsomorphicEffect()
   layoutEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t: number): number => (t === 1 ? 1 : 1 - Math.pow(2, -8 * t)), // https://easings.net
-      smooth: true,
-      direction: 'vertical',
-    })
-    function raf(time: number) {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
-    }
-
-    requestAnimationFrame(raf)
+    smoothScroll()
   })
   return (
     <QueryClientProvider client={queryClient}>
       <div className='w-full bg-gray-200'>
         <Header />
+        <StickyNav />
         <div className='max-w-screen grid grid-cols-2 gap-[2px] bg-black md:grid-cols-5'>{children}</div>
       </div>
     </QueryClientProvider>
@@ -44,4 +34,19 @@ const Header: React.FC = () => {
 const StickyNav: React.FC = () => {
   return <div className='sticky top-0 z-50 min-h-[50px] w-full border-b-[2px] border-black bg-orange-100'></div>
 }
+
+const smoothScroll = (): void => {
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t: number): number => (t === 1 ? 1 : 1 - Math.pow(2, -8 * t)), // https://easings.net
+    smooth: true,
+    direction: 'vertical',
+  })
+  function raf(time: number) {
+    lenis.raf(time)
+    requestAnimationFrame(raf)
+  }
+  requestAnimationFrame(raf)
+}
+
 export default Layout
