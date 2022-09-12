@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import type { FontFamily } from '@/common/api'
+import type { FontFamily } from '@/common/api-types'
 import type React from 'react'
 
 import { Zodios } from '@zodios/core'
@@ -7,9 +7,9 @@ import { ZodiosHooks } from '@zodios/react'
 import { scroll, animate } from 'motion'
 import { useRef } from 'react'
 
-import { usesResultsApi } from '@/common/api'
-import Layout from '@/components/Layout'
-import { useIsomorphicEffect } from '@/hooks/useIsomorphicLayoutEffect'
+import { usesResultsApi } from '@/common/api-types'
+import Layout from '@/components/app-layout'
+import { useIsomorphicEffect } from '@/common/hooks/use-isomorphic-layout-effect'
 interface FontUseProps {
   useIndex: number
   fontFamilies: Array<FontFamily>

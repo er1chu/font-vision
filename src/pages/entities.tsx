@@ -2,9 +2,9 @@ import type { NextPage } from 'next'
 import { Zodios } from '@zodios/core'
 import { ZodiosHooks } from '@zodios/react'
 
-import { entitiesResultsApi } from '@/common/api'
-import Layout from '@/components/Layout'
-import DisplayUnit from '@/components/DisplayUnit'
+import { entitiesResultsApi } from '@/common/api-types'
+import Layout from '@/components/app-layout'
+import DisplayUnit from '@/components/display-unit'
 
 const entitiesClientApi = new Zodios('/api', entitiesResultsApi)
 const entitiesClientHooks = new ZodiosHooks('entities', entitiesClientApi)
