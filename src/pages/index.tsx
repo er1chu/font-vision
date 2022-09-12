@@ -30,8 +30,17 @@ const UsesResults: NextPage = () => {
 const Uses: React.FC = () => {
   const { data: uses, isLoading, isError } = usesClientHooks.useGetUses()
   if (isLoading)
-    return <div className='min-w-screen col-span-2 min-h-screen bg-green-100 md:col-span-5'>Loading Fonts...</div>
-  if (isError) return <div>Error</div>
+    return (
+      <div className='min-w-screen col-span-2 flex min-h-screen items-center justify-center bg-green-100 text-7xl md:col-span-5'>
+        Loading Fonts...
+      </div>
+    )
+  if (isError)
+    return (
+      <div className='min-w-screen col-span-2 flex min-h-screen items-center justify-center bg-green-100 text-7xl md:col-span-5'>
+        Error :(
+      </div>
+    )
   return (
     <>
       {uses?.uses.map(({ font_families, thumb }, useIndex) => (
