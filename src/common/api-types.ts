@@ -35,6 +35,8 @@ const Contributor = z.object({
   permalink: z.string(),
 })
 
+export type Contributor = z.infer<typeof Contributor>
+
 const webPUrl = z
   .string()
   .url()
