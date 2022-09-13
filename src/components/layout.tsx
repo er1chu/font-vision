@@ -32,7 +32,24 @@ const Header: React.FC = () => {
 }
 
 const StickyNav: React.FC = () => {
-  return <div className='sticky top-0 z-50 min-h-[50px] w-full border-b-[2px] border-black bg-orange-100'></div>
+  return (
+    <div className='sticky top-0 z-50 grid min-h-[50px] w-full grid-cols-2 content-center border-b-[2px] border-black bg-orange-100 px-2 text-xs md:grid-cols-5'>
+      <div className='flex gap-1'>
+        Displaying:
+        <div>
+          <label htmlFor='default-checkbox' className='mr-2'>
+            Images
+          </label>
+          <input
+            id='default-checkbox'
+            type='checkbox'
+            value=''
+            className='border-black bg-orange-100 bg-none accent-pink-500 dark:focus:ring-blue-600'
+          />
+        </div>
+      </div>
+    </div>
+  )
 }
 
 const smoothScroll = (): void => {
@@ -42,7 +59,7 @@ const smoothScroll = (): void => {
     smooth: true,
     direction: 'vertical',
   })
-  function raf(time: number) {
+  function raf(time: number): void {
     lenis.raf(time)
     requestAnimationFrame(raf)
   }
