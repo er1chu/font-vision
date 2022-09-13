@@ -1,19 +1,11 @@
-import type { HTMLAttributes } from 'react'
-
-interface MastheadSettings {
-  fill?: string
-  stroke?: string
-  strokeWidth?: number
-}
-
-type Masthead<T> = T & HTMLAttributes<SVGElement>
+import type { SVGComponent, SVGSettings } from '@/common/types'
 
 function Masthead({
   fill = 'black',
   stroke = 'black',
   strokeWidth = 0,
   ...rest
-}: Masthead<MastheadSettings>): JSX.Element {
+}: SVGComponent<SVGSettings>): JSX.Element {
   return (
     <svg
       className='col-span-3 bg-gray-100 p-[4px]'
