@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
-import type { FontFamily } from '@/common/api-types'
-import type React from 'react'
+import type { FontFamily, Contributor } from '@/common/api-types'
+import type * as React from 'react'
 
 import { Zodios } from '@zodios/core'
 import { ZodiosHooks } from '@zodios/react'
@@ -10,10 +10,12 @@ import { useRef } from 'react'
 import { usesResultsApi } from '@/common/api-types'
 import Layout from '@/components/layout'
 import { useIsomorphicEffect } from '@/hooks/use-isomorphic-layout-effect'
+
 interface FontUseProps {
   useIndex: number
   fontFamilies: Array<FontFamily>
   thumb: string
+  contributor: Contributor
 }
 
 const usesClientApi = new Zodios('/api', usesResultsApi)
@@ -43,14 +45,20 @@ const Uses: React.FC = () => {
     )
   return (
     <>
-      {uses?.uses.map(({ font_families, thumb }, useIndex) => (
-        <FontUseUnit fontFamilies={font_families} thumb={thumb} useIndex={useIndex} key={useIndex} />
+      {uses?.uses.map(({ font_families, thumb, contributor }, useIndex) => (
+        <FontUseUnit
+          fontFamilies={font_families}
+          thumb={thumb}
+          useIndex={useIndex}
+          key={useIndex}
+          contributor={contributor}
+        />
       ))}
     </>
   )
 }
 
-const FontUseUnit: React.FC<FontUseProps> = ({ useIndex, fontFamilies, thumb }) => {
+const FontUseUnit: React.FC<FontUseProps> = ({ useIndex, fontFamilies, thumb, contributor }) => {
   const animationRef = useRef<Element>(null) as React.MutableRefObject<Element>
   const layoutEffect = useIsomorphicEffect()
   layoutEffect(() => {
@@ -85,12 +93,19 @@ const FontUseUnit: React.FC<FontUseProps> = ({ useIndex, fontFamilies, thumb }) 
           />
         ))}
       </div>
-      <img
-        className='group-hover:opacity-2 object-cover opacity-100 transition-all'
-        src={thumb}
-        loading='lazy'
-        alt={`Design featuring ${fontFamilies[0]?.name || 'an unidentified font'}`}
-      />
+      <div className='relative h-full w-full self-stretch'>
+        <img
+          className='group-hover:opacity-2 min-h-full min-w-full flex-shrink-0 object-cover opacity-100 transition-all'
+          src={thumb}
+          loading='lazy'
+          alt={`Design featuring ${fontFamilies[0]?.name || 'an unidentified font'}`}
+        />
+        <div className='absolute top-0 left-0 z-20 h-1/3 w-full bg-gradient-to-b from-gray-700 p-2 text-xs'>
+          <span className='rounded-full px-2 text-xs text-white shadow-2xl hover:bg-black'>
+            {contributor.pretty_name}
+          </span>
+        </div>
+      </div>
     </div>
   )
 }
