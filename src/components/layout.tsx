@@ -10,7 +10,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const layoutEffect = useIsomorphicEffect()
   layoutEffect(() => {
     smoothScroll()
-  },[])
+  }, [])
   return (
     <QueryClientProvider client={queryClient}>
       <div className='w-full bg-gray-200'>
