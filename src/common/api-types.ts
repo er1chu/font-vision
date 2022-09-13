@@ -14,9 +14,23 @@ const GenericFontObject = z.object({
   permalink: z.string().url(),
 })
 
-const Tag = GenericFontObject.omit({ name: true })
+const Industry = GenericFontObject
+
+export type Industry = z.infer<typeof Industry>
+
+const Designer = GenericFontObject
+
+export type Designer = z.infer<typeof Designer>
+
+const Tag = GenericFontObject.extend({
+  tag: z.string(),
+}).omit({ name: true })
+
+export type Tag = z.infer<typeof Tag>
 
 const Format = GenericFontObject
+
+export type Format = z.infer<typeof Format>
 
 const FontFamily = GenericFontObject.extend({
   kind: z.string(),
@@ -51,8 +65,8 @@ export const use = z.object({
   font_families: z.array(FontFamily),
   formats: z.array(Format),
   topics: z.array(Topic),
-  industries: z.array(GenericFontObject),
-  designers: z.array(GenericFontObject),
+  industries: z.array(Industry),
+  designers: z.array(Designer),
   tags: z.array(Tag),
   source_type: z.string(),
   locations: z.array(
