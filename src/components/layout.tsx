@@ -16,7 +16,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <div className='w-full bg-gray-200'>
         <Header />
         <StickyNav />
-        <div className='max-w-screen grid grid-cols-2 gap-[2px] bg-black md:grid-cols-5'>{children}</div>
+        <div className='max-w-screen grid grid-cols-2 gap-[2px] bg-black md:grid-cols-3 lg:grid-cols-5'>{children}</div>
       </div>
     </QueryClientProvider>
   )
