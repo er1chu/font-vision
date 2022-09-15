@@ -1,14 +1,15 @@
 import type { NextPage } from 'next'
 import type * as React from 'react'
+import type { UsesResults } from '@/common/api-types'
 
 import { Zodios } from '@zodios/core'
 import { ZodiosHooks } from '@zodios/react'
 
-import { usesResultsApi } from '@/common/api-types'
+import { usesResultsApi, usesResults as usesResultsValidation } from '@/common/api-types'
 import Layout from '@/components/layout'
 import FontUseUnit from '@/components/font-use-unit'
-import { Suspense } from 'react'
-import { QueryErrorResetBoundary } from 'react-query'
+
+import { QueryErrorResetBoundary, useQuery, QueryClientProvider, QueryClient } from 'react-query'
 import { ErrorBoundary } from 'react-error-boundary'
 
 const usesClientApi = new Zodios('/api', usesResultsApi)
@@ -19,6 +20,7 @@ const usesClientHooks = new ZodiosHooks('uses', usesClientApi)
 // TODO: suspense error boundary
 
 const UsesResults: NextPage = () => {
+  // console.log(usesInitial)
   return (
     <Layout>
       <Uses />
@@ -26,13 +28,22 @@ const UsesResults: NextPage = () => {
   )
 }
 
-export async function getStaticProps() {
-  const posts = await fetch('/api/uses')
-  return { props: { posts } }
-}
+// export async function getServerSideProps() {
+//   const baseUrl = `http://localhost:3000/api/uses`
+//   const parsedResponse = await fetch(baseUrl).then((response) => response.json())
+//   const initialResponse = usesResultsValidation.parse(parsedResponse)
+//   return { props: { initialResponse } }
+// }
 
 const Uses: React.FC = () => {
-  const { data: uses, isLoading, isError } = usesClientHooks.useGetUses(undefined, { retry: 0, staleTime: Infinity })
+  const {
+    data: uses,
+    isLoading,
+    isError,
+  } = useQuery('/uses', usesClientApi.getUses, {
+    staleTime: Infinity,
+    retry: 0,
+  })
   if (isLoading)
     return (
       <div className='min-w-screen lg:col-span5 col-span-2 flex min-h-screen items-center justify-center bg-green-100 text-7xl md:col-span-3'>
@@ -57,7 +68,6 @@ const Uses: React.FC = () => {
             </div>
           )}>
           {uses?.uses.map(({ font_families, thumb, contributor, tags, designers }, useIndex) => (
-            // <Suspense fallback={<div>Loading</div>} key={useIndex}>
             <FontUseUnit
               fontFamilies={font_families}
               thumb={thumb}
@@ -67,7 +77,6 @@ const Uses: React.FC = () => {
               tags={tags}
               designers={designers}
             />
-            // </Suspense>
           ))}
         </ErrorBoundary>
       )}
