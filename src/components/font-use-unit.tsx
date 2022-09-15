@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import { useIsomorphicEffect } from '@/hooks/use-isomorphic-layout-effect'
 import { scroll, animate } from 'motion'
 import UserIcon from '@/components/user-icon'
+import Img from 'react-cool-img'
 
 interface FontUseProps {
   useIndex: number
@@ -40,20 +41,17 @@ const FontUseUnit: React.FC<FontUseProps> = ({ useIndex, fontFamilies, thumb, co
       className='family-unit group flex aspect-[0.8] flex-col overflow-hidden rounded-lg odd:bg-[#b9ff00] even:bg-[#FFE0F8] hover:cursor-pointer'>
       <div>
         {fontFamilies.slice(0, 3).map(({ name, sample_src, use_count }, fontIndex) => (
-          <img
-            className='max-w-full border-b border-black even:bg-white'
-            src={sample_src}
-            alt={name}
-            key={fontIndex}
-            loading={useIndex < 10 ? 'eager' : 'lazy'}
-          />
+          <div className='even:bg-white' key={fontIndex}>
+            <Img className='max-w-full border-b border-black even:bg-white' src={sample_src} alt={name} />
+          </div>
         ))}
       </div>
       <div className='relative'>
-        <img
+        <Img
           className='group-hover:opacity-2 flex-grow-1 min-h-full min-w-full object-cover opacity-100 transition-all'
           src={thumb}
-          loading='lazy'
+          width={220}
+          height={220}
           alt={`Design featuring ${fontFamilies[0]?.name || 'an unidentified font'}`}
         />
         <div className='absolute top-0 left-0 z-20 h-1/3 w-full bg-gradient-to-b from-gray-700 p-2 text-xs uppercase'>
