@@ -21,6 +21,7 @@ specifiers:
   prettier: ^2.7.1
   prettier-plugin-tailwindcss: ^0.1.13
   react: 18.2.0
+  react-cool-img: ^1.2.12
   react-dom: 18.2.0
   react-error-boundary: ^3.1.4
   react-query: ^3.0.0
@@ -39,6 +40,7 @@ dependencies:
   motion: 10.14.2
   next: 12.2.5_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
+  react-cool-img: 1.2.12_biqbaboplfbrettd7655fr4n2y
   react-dom: 18.2.0_react@18.2.0
   react-error-boundary: 3.1.4_react@18.2.0
   react-query: 3.39.2_biqbaboplfbrettd7655fr4n2y
@@ -2372,6 +2374,16 @@ packages:
       http-errors: 2.0.0
       iconv-lite: 0.4.24
       unpipe: 1.0.0
+    dev: false
+
+  /react-cool-img/1.2.12_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-HambbjVszVVCNAEps+wReo9znzhgpq/72DCRvz4ahKkubEUV/ij0WH3RCQ37rcAPezhchpH75VutDE/ENgWegA==}
+    peerDependencies:
+      react: '>= 16.8.0'
+      react-dom: '>= 16.8.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /react-dom/18.2.0_react@18.2.0:
