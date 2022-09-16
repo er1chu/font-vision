@@ -91,11 +91,25 @@ export const usesResults = GenericFontDataSet.extend({
 
 export type Use = z.infer<typeof use>
 
+export type UsesResults = z.infer<typeof usesResults>
+
 export const usesResultsApi = asApi([
   {
     method: 'get',
     path: '/uses',
     alias: 'getUses',
+    parameters: [
+      {
+        name: 'page',
+        type: 'Query',
+        schema: z.number(),
+      },
+      {
+        name: 'count',
+        type: 'Query',
+        schema: z.number(),
+      },
+    ],
     response: usesResults,
   },
 ])
