@@ -24,6 +24,7 @@ specifiers:
   react-cool-img: ^1.2.12
   react-dom: 18.2.0
   react-error-boundary: ^3.1.4
+  react-intersection-observer: ^9.4.0
   react-query: ^3.39.2
   tailwindcss: ^3.1.8
   typescript: 4.7.4
@@ -43,6 +44,7 @@ dependencies:
   react-cool-img: 1.2.12_biqbaboplfbrettd7655fr4n2y
   react-dom: 18.2.0_react@18.2.0
   react-error-boundary: 3.1.4_react@18.2.0
+  react-intersection-observer: 9.4.0_react@18.2.0
   react-query: 3.39.2_biqbaboplfbrettd7655fr4n2y
   zod: 3.19.1
   zod-error: 1.0.3
@@ -2403,6 +2405,14 @@ packages:
       react: '>=16.13.1'
     dependencies:
       '@babel/runtime': 7.19.0
+      react: 18.2.0
+    dev: false
+
+  /react-intersection-observer/9.4.0_react@18.2.0:
+    resolution: {integrity: sha512-v0403CmomOVlzhqFXlzOxg0ziLcVq8mfbP0AwAcEQWgZmR2OulOT79Ikznw4UlB3N+jlUYqLMe4SDHUOyp0t2A==}
+    peerDependencies:
+      react: ^15.0.0 || ^16.0.0 || ^17.0.0|| ^18.0.0
+    dependencies:
       react: 18.2.0
     dev: false
 
