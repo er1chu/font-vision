@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@studio-freight/lenis': ^0.2.2
+  '@tanstack/react-virtual': 3.0.0-beta.18
   '@types/node': 18.0.0
   '@types/react': 18.0.14
   '@types/react-dom': 18.0.5
@@ -33,6 +34,7 @@ specifiers:
 
 dependencies:
   '@studio-freight/lenis': 0.2.2
+  '@tanstack/react-virtual': 3.0.0-beta.18_react@18.2.0
   '@zodios/core': 9.0.1_axios@0.27.2+zod@3.19.1
   '@zodios/express': 0.3.2_x2hbt5m2dt5xxww7caxzzkmpjq
   '@zodios/react': 9.1.0_bnwaxmkafnyff6uk77j6kxrzbe
@@ -340,6 +342,21 @@ packages:
     resolution: {integrity: sha512-6JrF+fdUK2zbGpJIlN7G3v966PQjyx/dPt1T9km2wj+EUBqgrxCk3uX4Kct16MIm9gGxfKRcfax2hVf5jvlTzA==}
     dependencies:
       tslib: 2.4.0
+    dev: false
+
+  /@tanstack/react-virtual/3.0.0-beta.18_react@18.2.0:
+    resolution: {integrity: sha512-mnyCZT6htcRNw1jVb+WyfMUMbd1UmXX/JWPuMf6Bmj92DB/V7Ogk5n5rby5Y5aste7c7mlsBeMF8HtpwERRvEQ==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@tanstack/virtual-core': 3.0.0-beta.18
+      react: 18.2.0
+    dev: false
+
+  /@tanstack/virtual-core/3.0.0-beta.18:
+    resolution: {integrity: sha512-tcXutY05NpN9lp3+AXI9Sn85RxSPV0EJC0XMim9oeQj/E7bjXoL0qZ4Er4wwnvIbv/hZjC91EmbIQGjgdr6nZg==}
+    engines: {node: '>=12'}
     dev: false
 
   /@types/json-schema/7.0.11:
