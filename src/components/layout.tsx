@@ -13,7 +13,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   }, [])
   return (
     <QueryClientProvider client={queryClient}>
-      <div className='w-full bg-gray-200'>
+      <div className='w-full bg-background'>
         <Header />
         <StickyNav />
         <div className='max-w-screen grid grid-cols-2 gap-[2px] bg-black md:grid-cols-3 lg:grid-cols-5'>{children}</div>
@@ -24,16 +24,22 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
 const Header: React.FC = () => {
   return (
-    <header className='relative grid grid-cols-5 gap-[2px] bg-black pb-[2px] text-xs font-medium'>
-      <Masthead />
-      <div className='col-span-2 w-full bg-white p-2'>TO-DO: Subheader Component</div>
-    </header>
+    <>
+      <header className='relative grid grid-cols-5 gap-[2px] bg-main pb-[2px] text-xs font-medium'>
+        <Masthead fill={'fill-main'} stroke={'stroke-background'} strokeWidth={'stroke-0'} />
+        <div className='relative col-span-2 w-full bg-background p-2'>
+          {/* <div className='absolute top-0 left-0 z-[100] -ml-[50px]'>
+            <img className='w-[100px]' src='/scrappy.svg' alt='scrappy' />
+          </div> */}
+        </div>
+      </header>
+    </>
   )
 }
 
 const StickyNav: React.FC = () => {
   return (
-    <div className='sticky top-0 z-50 grid min-h-[50px] w-full grid-cols-2 content-center border-b-[2px] border-black bg-orange-100 px-2 text-xs md:grid-cols-5'>
+    <div className='sticky top-0 z-50 grid min-h-[50px] w-full grid-cols-2 content-center border-b-[2px] border-black bg-accent px-2 text-xs md:grid-cols-5'>
       <div className='flex gap-1'>
         Displaying:
         <div>

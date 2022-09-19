@@ -15,10 +15,11 @@ interface FontUseProps {
   designers?: Array<Designer>
 }
 
-const FontUseUnit: React.FC<FontUseProps> = ({ useIndex, fontFamilies, thumb, contributor, designers, tags }) => {
+const FontUseUnit: React.FC<FontUseProps> = ({ fontFamilies, thumb, contributor, designers, tags }) => {
   const animationRef = useRef<Element>(null) as React.MutableRefObject<Element>
   const layoutEffect = useIsomorphicEffect()
   layoutEffect(() => {
+    //scroll-based animation, perf issues
     scroll(
       animate(
         animationRef.current,
@@ -34,27 +35,28 @@ const FontUseUnit: React.FC<FontUseProps> = ({ useIndex, fontFamilies, thumb, co
         offset: ['start end', 'end end', 'start start', 'end start'],
       }
     )
-  })
+  }, [])
   return (
     <div
       ref={animationRef as React.RefObject<HTMLDivElement>}
-      className='family-unit group flex aspect-[0.8] flex-col overflow-hidden rounded-lg odd:bg-[#b9ff00] even:bg-[#FFE0F8] hover:cursor-pointer'>
-      <div>
+      className='family-unit group flex aspect-[0.8] flex-col overflow-hidden rounded-lg odd:bg-secondary even:bg-primary hover:cursor-pointer'>
+      <div className=''>
         {fontFamilies.slice(0, 3).map(({ name, sample_src, use_count }, fontIndex) => (
-          <div className='even:bg-white' key={fontIndex}>
-            <Img className='max-w-full border-b border-black even:bg-white' src={sample_src} alt={name} />
+          <div className='border-b-[1px] border-black even:bg-[#ffffff]' key={fontIndex}>
+            <Img debounce={0} className='max-w-full' src={sample_src} alt={name} />
           </div>
         ))}
       </div>
-      <div className='relative'>
+      <div className='relative bg-gradient-to-b from-background to-accent opacity-100'>
         <Img
-          className='group-hover:opacity-2 flex-grow-1 min-h-full min-w-full object-cover opacity-100 transition-all'
+          className='flex-grow-1 min-h-full min-w-full object-cover mix-blend-multiply transition-all hover:mix-blend-normal hover:grayscale-0'
           src={thumb}
+          debounce={450}
           width={220}
           height={220}
           alt={`Design featuring ${fontFamilies[0]?.name || 'an unidentified font'}`}
         />
-        <div className='absolute top-0 left-0 z-20 h-1/3 w-full bg-gradient-to-b from-gray-700 p-2 text-xs uppercase'>
+        <div className='absolute top-0 left-0 z-20 h-1/3 w-full bg-gradient-to-b from-black p-2 text-xs uppercase'>
           {designers?.length && (
             <DesignerDisplay designer={designers[0] as Designer} numberOfDesigners={designers.length} />
           )}
@@ -63,19 +65,6 @@ const FontUseUnit: React.FC<FontUseProps> = ({ useIndex, fontFamilies, thumb, co
       <div className='flew-wrap absolute bottom-0 left-0 flex w-full gap-2 p-2'>
         {tags && tags.length && <LinkButton url={tags[0]?.permalink || ''} text={tags[0]?.tag || ''} />}
       </div>
-    </div>
-  )
-}
-
-const ContributorDisplay: React.FC<{ contributor: Contributor }> = ({ contributor }) => {
-  return (
-    <div className='group group flex flex-grow-0 items-center gap-2'>
-      <UserIcon />
-      <button className='uppercase text-white shadow-2xl hover:bg-black'>
-        <a href={contributor.permalink} rel='noreferrer' target='_blank'>
-          {contributor.pretty_name || contributor.username}
-        </a>
-      </button>
     </div>
   )
 }
@@ -98,7 +87,7 @@ const DesignerDisplay: React.FC<{ designer: Designer; numberOfDesigners: number 
 
 const LinkButton: React.FC<{ url: string; text: string }> = ({ url, text }) => {
   return (
-    <button className='rounded-full border border-black bg-white p-1 text-xs shadow-2xl'>
+    <button className='rounded-full border border-black bg-background p-1 text-xs shadow-2xl'>
       <a href={url} rel='noreferrer' target='_blank'>
         {text}
       </a>
@@ -106,4 +95,17 @@ const LinkButton: React.FC<{ url: string; text: string }> = ({ url, text }) => {
   )
 }
 
+const ContributorDisplay: React.FC<{ contributor: Contributor }> = ({ contributor }) => {
+  const { pretty_name, permalink, username } = contributor
+  return (
+    <div className='group group flex flex-grow-0 items-center gap-2'>
+      <UserIcon />
+      <button className='uppercase text-white shadow-2xl hover:bg-black'>
+        <a href={permalink} rel='noreferrer' target='_blank'>
+          {pretty_name || username}
+        </a>
+      </button>
+    </div>
+  )
+}
 export default FontUseUnit
