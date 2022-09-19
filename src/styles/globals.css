@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+img[class*='no-js'] {
+  opacity: 1;
+  transition: all 0.5s;
+}
+img[src^='data'] {
+  opacity: 0;
+}
+
+html {
+  --primary: hsl(0, 0%, 90%);
+  --secondary: hsl(120, 30%, 90%);
+  --accent: hsl(146, 67%, 90%);
+  --background: hsl(0, 0%, 90%);
+  --main: hsl(0, 0%, 10%);
+  --header: hsl(218, 23%, 23%);
+}
