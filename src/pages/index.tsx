@@ -12,6 +12,7 @@ import { useInView } from 'react-intersection-observer'
 import Layout from '@/components/layout'
 import FontUseUnit from '@/components/font-use-unit'
 import LoadingScreen from '@/components/loading-screen'
+import LoadingModal from '@/components/loading-modal'
 
 const usesClientApi = new Zodios('/api', usesResultsApi)
 const usesClientHooks = new ZodiosHooks('uses', usesClientApi)
@@ -20,7 +21,7 @@ const UsesResults: NextPage = () => {
   return (
     <Layout>
       <Uses />
-      <ReactQueryDevtools initialIsOpen={false} />
+      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </Layout>
   )
 }
@@ -67,6 +68,7 @@ const Uses: React.FC = () => {
     )
   return (
     <>
+      <LoadingModal visibility={isFetchingNextPage} />
       {uses?.pages.flatMap((page) =>
         page?.uses.map(({ font_families, thumb, contributor, tags, designers }, useIndex) => (
           <FontUseUnit
@@ -98,4 +100,5 @@ const Uses: React.FC = () => {
     </>
   )
 }
+
 export default UsesResults
