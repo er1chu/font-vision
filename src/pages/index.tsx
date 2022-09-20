@@ -119,7 +119,7 @@ const Uses: React.FC = () => {
           fetchNextPage()
           page.current = page.current + 1
         }}
-        className='col-span-5 flex items-center justify-center bg-green-500 p-20 text-7xl'>
+        className='flex items-center justify-center bg-green-500 p-20 text-7xl lg:col-span-5'>
         {isFetchingNextPage ? (
           <div className='animate-pulse'>Loading more fonts...</div>
         ) : hasNextPage ? (
