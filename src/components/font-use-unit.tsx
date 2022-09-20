@@ -7,6 +7,7 @@ import UserIcon from '@/components/user-icon'
 import Img from 'react-cool-img'
 
 interface FontUseProps {
+  useIndex?: number
   fontFamilies: Array<FontFamily>
   thumb: string
   contributor: Contributor
