@@ -1,13 +1,14 @@
 import type { NextPage } from 'next'
 import type * as React from 'react'
-import type { UsesResults } from '@/common/api-types'
+import type { UsesResults, Use } from '@/common/api-types'
 
 import { Zodios } from '@zodios/core'
 import { ZodiosHooks } from '@zodios/react'
 import { usesResultsApi, usesResults as usesResultsValidation } from '@/common/api-types'
 import { ReactQueryDevtools } from 'react-query/devtools'
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer'
+import Link from 'next/link'
 
 import Layout from '@/components/layout'
 import FontUseUnit from '@/components/font-use-unit'
@@ -27,8 +28,18 @@ const UsesResults: NextPage = () => {
 }
 
 const Uses: React.FC = () => {
+  //TODO if filter, make header componetn the tinier one for scrollTop
+  const [filter, setFilter] = useState<undefined | Use>()
+
+  const filterByUse = (use: Use | undefined, array: Array<Use>, useIndex: number) => {
+    setFilter(use) // set filter to use tags
+    // window.scrollTo(0, 0)
+    array.splice(useIndex, 1) // remove use from list
+  }
+
   const { ref, inView } = useInView()
   const page = useRef(1)
+  const scrollRef = useRef<HTMLDivElement>(null)
   const {
     data: uses,
     isLoading,
@@ -38,7 +49,7 @@ const Uses: React.FC = () => {
     hasNextPage,
   } = usesClientHooks.useInfiniteQuery(
     '/uses',
-    { queries: { page: 1, count: 30 }, retry: 0, staleTime: Infinity },
+    { queries: { page: 1, count: 30 }, retry: 0, staleTime: Infinity, select: (data) => data.uses },
     {
       getPageParamList: () => {
         return ['page']
@@ -58,6 +69,12 @@ const Uses: React.FC = () => {
       page.current += 1
     }
   }, [inView, fetchNextPage])
+  useEffect(() => {
+    if (filter) {
+      scrollRef.current?.scrollIntoView()
+      console.log('fired')
+    }
+  }, [filter])
 
   if (isLoading) return <LoadingScreen unitCount={30} />
   if (isError)
@@ -68,20 +85,34 @@ const Uses: React.FC = () => {
     )
   return (
     <>
-      <LoadingModal visibility={isFetchingNextPage} />
+      {/* <LoadingModal visibility={isFetchingNextPage} /> */}
+      {filter && (
+        // when filter is set, move use to front of list
+        <div ref={scrollRef}>
+          <FontUseUnit
+            fontFamilies={filter.font_families}
+            thumb={filter.thumb}
+            tags={filter.tags}
+            designers={filter.designers}
+            onClick={() => setFilter(filter)}
+            contributor={filter.contributor}
+          />
+        </div>
+      )}
       {uses?.pages.flatMap((page) =>
-        page?.uses.map(({ font_families, thumb, contributor, tags, designers }, useIndex) => (
+        page?.uses.map(({ id, font_families, thumb, contributor, tags, designers }, useIndex) => (
           <FontUseUnit
             fontFamilies={font_families}
             thumb={thumb}
-            useIndex={useIndex}
-            key={useIndex}
+            key={`${useIndex}-${id}`}
             contributor={contributor}
             tags={tags}
             designers={designers}
+            onClick={() => filterByUse(page.uses[useIndex], page.uses, useIndex)}
           />
         ))
       )}
+      {isFetchingNextPage && <LoadingScreen unitCount={30} />}
       <div
         ref={ref}
         onClick={() => {
