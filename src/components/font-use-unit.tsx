@@ -7,15 +7,15 @@ import UserIcon from '@/components/user-icon'
 import Img from 'react-cool-img'
 
 interface FontUseProps {
-  useIndex: number
   fontFamilies: Array<FontFamily>
   thumb: string
   contributor: Contributor
   tags?: Array<Tag>
   designers?: Array<Designer>
+  onClick?: () => void
 }
 
-const FontUseUnit: React.FC<FontUseProps> = ({ fontFamilies, thumb, contributor, designers, tags }) => {
+const FontUseUnit: React.FC<FontUseProps> = ({ fontFamilies, thumb, contributor, designers, tags, onClick }) => {
   const animationRef = useRef<Element>(null) as React.MutableRefObject<Element>
   const layoutEffect = useIsomorphicEffect()
   layoutEffect(() => {
@@ -38,6 +38,7 @@ const FontUseUnit: React.FC<FontUseProps> = ({ fontFamilies, thumb, contributor,
   }, [])
   return (
     <div
+      onClick={onClick}
       ref={animationRef as React.RefObject<HTMLDivElement>}
       className='family-unit group flex aspect-[0.8] flex-col overflow-hidden rounded-lg odd:bg-secondary even:bg-primary hover:cursor-pointer'>
       <div className=''>
